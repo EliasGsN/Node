@@ -5,8 +5,8 @@ const app = express();
 
 app.use(express.json());
 
-app.set('views engine', 'ejs');
-app.set('views', './src/views');
+app.set('view engine', 'ejs');
+app.set('views', 'src/views');
 
 
 app.use((req, res, next) => {
@@ -15,6 +15,12 @@ app.use((req, res, next) => {
     console.log(`Date: ${new Date()}`);
 
     next();
+});
+
+app.get('/views/users', async (req, res) => {
+    const users = await UserModel.find({});
+
+    res.render("index", {users});
 });
 
 app.get('/users', async (req, res) => {
