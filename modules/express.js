@@ -81,5 +81,5 @@ app.delete('/users/:id', async (req, res) => {
  
 const port = 8080;
 
-app.listen(port, () => console.log('Rodando com express na porta ${port}!'));
+app.listen(port, () => console.log(`Rodando com express na porta ${port}`));
 
